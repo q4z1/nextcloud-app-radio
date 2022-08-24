@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>radio</id>
+    <name>Radio</name>
+    <summary>Listen to your favorite radio stations</summary>
+    <description>Listening to your favorite radio stations in Nextcloud! This
+app uses radio-browser.info database as a backend.
+
+- 🔊 Listen to radio stations directly in Nextcloud
+- 🔍 Browse thousands of stations worldwide
+- ⭐ Create your own list of favorite stations
+- ⭕ Dashboard widget support
+- ⚡ Keep track of recent played stations
+- 📁 Browse stations by language, country, etc.
+- 👂 Smoth audio playback and transitions
+
+</description>
+    <version>1.2.0</version>
+    <licence>agpl</licence>
+    <author mail="onny@project-insanity.org" >Jonas Heinrich</author>
+    <namespace>Radio</namespace>
+    <category>multimedia</category>
+    <website>https://git.project-insanity.org/onny/nextcloud-app-radio</website>
+    <bugs>https://git.project-insanity.org/onny/nextcloud-app-radio/issues</bugs>
+    <screenshot small-thumbnail="https://git.project-insanity.org/onny/nextcloud-app-radio/raw/master/screenshot-thumbnail.jpg">https://git.project-insanity.org/onny/nextcloud-app-radio/raw/master/screenshot.png</screenshot>
+    <dependencies>
+      <php min-version="7.4" max-version="8" />
+      <nextcloud min-version="20" max-version="21"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <id>radio</id>
+            <name>Radio</name>
+            <route>radio.page.index</route>
+            <icon>radio.svg</icon>
+            <order>11</order>
+        </navigation>
+    </navigations>
+</info>

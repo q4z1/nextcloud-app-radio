@@ -1,0 +1,88 @@
+stages:
+  - compiling
+  - testing
+  - packaging
+  - signing
+  - publishing
+
+image: node:buster
+
+variables:
+  APP_NAME: "radio"
+
+compiling:
+  stage: compiling
+  script:
+    - apt update
+    - DEBIAN_FRONTEND="noninteractive" apt install -y gettext php php-simplexml
+    - npm install
+    - make build-js
+    - make translations
+  artifacts:
+    paths:
+      - ./l10n/*
+      - ./js/*
+  cache:
+    paths:
+      - node_modules/
+
+testing:
+  stage: testing
+  image: nextcloud:fpm
+  script:
+    - cp -r $(pwd) /usr/src/nextcloud/apps/${APP_NAME}
+    - php /usr/src/nextcloud/occ maintenance:install --database "sqlite" --admin-user "admin" --admin-pass "password"
+    - php /usr/src/nextcloud/occ app:enable ${APP_NAME}
+    - php /usr/src/nextcloud/occ maintenance:mode --off
+    - php /usr/src/nextcloud/occ app:check-code ${APP_NAME}
+  artifacts:
+    paths:
+      - ./l10n/*
+      - ./js/*
+
+packaging:
+  stage: packaging
+  image: ubuntu:rolling
+  script:
+    - apt update
+    - DEBIAN_FRONTEND="noninteractive" apt install -y wget sudo gettext php php-simplexml nodejs npm git
+    - wget https://github.com/ChristophWurst/krankerl/releases/download/v0.13.0/krankerl_0.13.0_amd64.deb
+    - sudo dpkg -i krankerl_0.13.0_amd64.deb
+    - krankerl package
+  artifacts:
+    paths:
+      - build/artifacts/${APP_NAME}.tar.gz
+
+signing:
+  stage: signing
+  image: nextcloud:fpm
+  script:
+    - echo "-----BEGIN PRIVATE KEY-----" > sign.key
+    - echo $SIGN_KEY | tr " " "\n" >> sign.key
+    - echo "-----END PRIVATE KEY-----" >> sign.key
+    - echo "-----BEGIN CERTIFICATE-----" > sign.crt
+    - echo $SIGN_CRT | tr " " "\n" >> sign.crt
+    - echo "-----END CERTIFICATE-----" >> sign.crt
+    - tar xvf build/artifacts/${APP_NAME}.tar.gz
+    - php /usr/src/nextcloud/occ integrity:sign-app --path=$(pwd)/${APP_NAME} --privateKey=$(pwd)/sign.key --certificate=$(pwd)/sign.crt
+    - tar -czvf build/artifacts/${APP_NAME}.tar.gz ${APP_NAME}
+    - rm -r sign.key sign.crt ${APP_NAME}
+    - echo CI_PACKAGING_JOBID="${CI_JOB_ID}" > $CI_PROJECT_DIR/variables.env
+  artifacts:
+    paths:
+      - build/artifacts/${APP_NAME}.tar.gz
+    expire_in: never
+    reports:
+      dotenv: variables.env
+
+publishing:
+  stage: publishing
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - EXTRA_DESCRIPTION="$(sed '1,/^## /!d;/^## /d' CHANGELOG.md)";
+    - >
+      release-cli create --name "v$CI_COMMIT_TAG" --description "$EXTRA_DESCRIPTION"
+      --tag-name $CI_COMMIT_TAG --ref $CI_COMMIT_SHA
+      --assets-link "{\"name\":\"${APP_NAME}\",\"url\":\"https://git.project-insanity.org/onny/nextcloud-app-radio/-/jobs/${CI_PACKAGING_JOBID}/artifacts/raw/build/artifacts/${APP_NAME}.tar.gz\",\"link_type\":\"other\"}"

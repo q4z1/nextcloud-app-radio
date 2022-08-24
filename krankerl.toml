@@ -1,0 +1,4 @@
+[package]
+before_cmds = [
+    'npm install && make build-js && make translations'
+]

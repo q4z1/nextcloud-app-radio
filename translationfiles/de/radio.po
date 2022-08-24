@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021 Jonas Heinrich
+# This file is distributed under the same license as the Nextcloud package.
+# Jonas Heinrich <onny@project-insanity.org>, 2021.
+#
+# Translators:
+# Jonas Heinrich <onny@project-insanity.org>, 2021
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Nextcloud 3.14159\n"
+"Report-Msgid-Bugs-To: translations\\@example.com\n"
+"POT-Creation-Date: 2020-11-28 09:54+0100\n"
+"PO-Revision-Date: 2020-10-18 10:21+0000\n"
+"Last-Translator: Jonas Heinrich <onny@project-insanity.org>, 2020\n"
+"Language-Team: German (https://www.transifex.com/project-insanityorg/teams/114097/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: /home/onny/projects/nextcloud-app-radio/lib/Dashboard/RadioWidget.php:60
+msgid "Radio stations"
+msgstr "Radio Stationen"
+
+#: /home/onny/projects/nextcloud-app-radio/specialAppInfoFakeDummyForL10nScript.php:2
+msgid "Radio"
+msgstr "Radio"
+
+#: /home/onny/projects/nextcloud-app-radio/specialAppInfoFakeDummyForL10nScript.php:3
+msgid "Radio listening app"
+msgstr "Online Radiosender hören"
+
+#: /home/onny/projects/nextcloud-app-radio/specialAppInfoFakeDummyForL10nScript.php:4
+msgid "Listening to your favorite radio stations in Nextcloud"
+msgstr "Höre deine Lieblings-Radiosender direkt in Nextcloud"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:1
+msgid "Error fetching favorite stations"
+msgstr "Favorisierte Stationen konnten nicht geladen werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:2
+msgid "No favorites added yet!"
+msgstr "Noch keine favorisierte Stationen vorhanden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:3
+msgid "Failed to fetch favorite radio stations"
+msgstr "Favorisierte Stationen konnten nicht geladen werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:4
+msgid "No favorites yet"
+msgstr "Noch keine Favoriten"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:5
+msgid "No recent stations yet"
+msgstr "Noch keine zuletzt gespielten Stationen"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:6
+msgid "No search results"
+msgstr "Keine Suchergebnisse"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:7
+msgid "Stations you mark as favorite will show up here"
+msgstr "Radio Stationen die favorisiert wurden werden hier angezeigt"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:8
+msgid "Stations you recently played will show up here"
+msgstr "Radio Stationen die vor kurzem gespielt wurden, werden hier angezeigt"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:9
+msgid "No stations were found matching your search term"
+msgstr "Keine Stationen unter diesen Suchbegriff gefunden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:10
+msgid "No stations here"
+msgstr "Keine Stationen verfügbar"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:11
+msgid "Could not remove station from favorites"
+msgstr "Radio station konnte nicht von den Favoriten entfernt werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:12
+msgid "Could not favor station"
+msgstr "Station konnte nicht favorisiert werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:13
+msgid "Lost connection to radio station, retrying ..."
+msgstr ""
+"Verbindung zur Radio Station unterbrochen, versuche wiederzuverbinden ..."
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:14
+msgid "Unable to count play on remote API"
+msgstr "Wiedergabe konnte nicht gezählt werden von der entfernten API"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:15
+msgid "Could not add station to recent list"
+msgstr ""
+"Radio Station konnte nicht in die zuletzt gespielt Liste aufgenommen werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:16
+msgid "Countries"
+msgstr "Länder"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:17
+msgid "States"
+msgstr "Staaten"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:18
+msgid "Languages"
+msgstr "Sprachen"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:19
+msgid "Tags"
+msgstr "Stichwörter"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:20
+msgid "Could not fetch stations from remote API"
+msgstr "Radio Stationen konnten nicht von der API geladen werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:21
+msgid "Unable to load favorites"
+msgstr "Favoriten konnten nicht geladen werden"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:22
+msgid "Top"
+msgstr "Beliebteste"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:23
+msgid "Recent"
+msgstr "Zuletzt gehört"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:24
+msgid "New"
+msgstr "Neu"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:25
+msgid "Favorites"
+msgstr "Favoriten"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:26
+msgid "Categories"
+msgstr "Kategorien"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:27
+msgid "Search"
+msgstr "Suche"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:28
+msgid "Stream URL"
+msgstr "Stream URL"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:29
+msgid "Copy link to clipboard"
+msgstr "Adresse in die Zwischenablage kopieren"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:30
+msgid "Homepage"
+msgstr "Webseite"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:31
+msgid "Country & Language"
+msgstr "Land und Sprache"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:32
+msgid "Codec & Bitrate"
+msgstr "Codec & Bitrate"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:33
+msgid "Link copied to clipboard"
+msgstr "Adresse in die Zwischenablage kopiert"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:34
+msgid "Error while copying link to clipboard"
+msgstr "Fehler beim Speichern in die Zwischenablage"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:35
+msgid "Name"
+msgstr "Name"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:36
+msgid "Add to favorites"
+msgstr "Zu den Favoriten hinzufügen"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:37
+msgid "Remove from favorites"
+msgstr "Von den Favoriten entfernen"
+
+#: /home/onny/projects/nextcloud-app-radio/specialVueFakeDummyForL10nScript.js:38
+msgid "Details"
+msgstr "Weitere Informationen"
