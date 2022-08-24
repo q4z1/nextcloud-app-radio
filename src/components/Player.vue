@@ -75,9 +75,9 @@ export default {
 
 	.wrap {
 		background: var(--color-main-background);
-		border: 3px solid #0082c9;
+		border: 2px solid #0082c9;
 		float: left;
-		border-radius: 50%;
+		border-radius: 2px;
 		margin: 10px;
 	}
 
