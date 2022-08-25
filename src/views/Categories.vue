@@ -31,6 +31,7 @@
 					<Breadcrumb title="Categories" href="#/categories" />
 				</Breadcrumbs>
 			</div>
+			<Player :pinned="true" />
 			<Table
 				v-show="!pageLoading && stations.length > 0"
 				:station-data="stations"
@@ -67,7 +68,7 @@ import Navigation from './../components/Navigation'
 import Table from './../components/Table'
 import Sidebar from './../components/Sidebar'
 import { mapGetters, mapActions } from 'vuex'
-
+import Player from './../components/Player'
 import { RadioBrowserApi } from './../services/RadioBrowserApi'
 const apiClient = new RadioBrowserApi()
 
@@ -82,6 +83,7 @@ export default {
 		Sidebar,
 		Breadcrumbs,
 		Breadcrumb,
+		Player,
 	},
 	data: () => ({
 		pageLoading: false,

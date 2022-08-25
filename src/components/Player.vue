@@ -21,28 +21,62 @@
   -->
 
 <template>
-	<div id="app-settings">
-		<div
-			class="wrap"
-			:class="{ buffering: getBuffering }">
-			<button
-				class="player"
-				:class="getPlaying ? 'pause' : 'play'"
-				@click="togglePlay" />
+	<div id="app-settings" class="controls">
+		<div class="rplayer">
+			<button class="player" :class="getPlaying ? 'pause' : 'play'" @click="togglePlay">
+				<svg
+					v-if="getPlaying"
+					width="32"
+					height="32"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M10 9V15"
+						stroke-width="1.5"
+						stroke-linecap="round" />
+					<path
+						d="M14 9V15"
+						stroke-width="1.5"
+						stroke-linecap="round" />
+					<rect
+						x="4"
+						y="4"
+						width="16"
+						height="16"
+						rx="2.8"
+						stroke-width="1.5" />
+				</svg>
+				<svg
+					v-else
+					:class="{ buffering: getBuffering }"
+					width="32"
+					height="32"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<rect
+						x="4"
+						y="4"
+						width="16"
+						height="16"
+						rx="2.8"
+						stroke-width="1.5" />
+					<path
+						d="M14.6707 11.4226C15.1145 11.7174 15.1087 12.3586 14.6594 12.6456L11.1638 14.8789C10.661 15.2002 9.99465 14.8442 10 14.2572L10.0416 9.72962C10.0469 9.1426 10.7197 8.79833 11.2166 9.12835L14.6707 11.4226Z"
+						stroke-width="1.5" />
+				</svg>
+			</button>
+			<div class="volumeIcon" :class="getVolume == 0 ? 'volumeMute' : 'volumeFull'" @click="toggleMute" />
+			<input class="volume"
+				type="range"
+				name="volume"
+				min="0"
+				max="1"
+				step=".05"
+				:value="getVolume"
+				@input="setVolume($event.target.value)">
 		</div>
-		<div
-			class="volumeIcon"
-			:class="getVolume == 0 ? 'volumeMute' : 'volumeFull'"
-			@click="toggleMute" />
-		<input
-			class="volume"
-			type="range"
-			name="volume"
-			min="0"
-			max="1"
-			step=".05"
-			:value="getVolume"
-			@input="setVolume($event.target.value)">
 		<div class="playerMetadata">
 			{{ getTitle }}
 		</div>
@@ -72,92 +106,113 @@ export default {
 </script>
 
 <style>
+#app-settings {
+	display: grid;
+	grid-auto-flow: row;
+	justify-self: end;
+	grid-gap: 20px;
+}
 
-	.wrap {
-		background: var(--color-main-background);
-		border: 2px solid #0082c9;
-		float: left;
-		border-radius: 2px;
-		margin: 10px;
+.rplayer {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: min-content;
+	place-items: center;
+	grid-gap: 5px;
+}
+
+.rplayer .volume {
+	position: static;
+	top: auto;
+	left: auto;
+	width: auto;
+	height: auto;
+}
+
+.rplayer .volumeIcon {
+	position: static;
+	top: auto;
+	left: auto;
+}
+
+button.player {
+	width: auto;
+	height: auto;
+	margin:0;
+	padding: 0;
+	border: none !important;
+}
+
+button.player:focus {
+	border: none !important;
+}
+
+.play svg{
+	stroke: #0082c9;
+}
+
+.pause svg{
+	stroke: #0082c9;
+}
+
+.buffering {
+	stroke: #0082c9;
+	animation: buffering 2s infinite linear;
+}
+
+@keyframes buffering {
+	0% {
+		stroke: #0082c9;
 	}
 
-	.player{
-		height:50px;
-		width: 50px;
-		background-color: #0082c9;
-		mask-repeat: no-repeat;
-		mask-size: 55%;
-		mask-position: 70% 50%;
+	50% {
+		stroke: var(--color-main-background);
 	}
 
-	.play{
-		mask-image: var(--icon-play-000);
-		transition: mask-image 0.4s ease-in-out;
+	100% {
+		stroke: #0082c9;
 	}
+}
 
-	.pause{
-		mask-image: var(--icon-pause-000);
-		mask-position: 58% 50%;
-		transition: mask-image 0.4s ease-in-out;
-	}
+.playerMetadata {
+	position: relative;
+	left: 5px;
+	top: -20px;
+	width: 203px;
+	height: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
-	.buffering {
-		border: 3px solid #0082c9;
-		animation: buffering 2s infinite linear;
-	}
+.volumeIcon {
+	width: 25px;
+	height: 25px;
+	position: relative;
+	left: 85px;
+	top: 20px;
+	cursor: pointer;
+}
 
-	@keyframes buffering {
-		0% {
-			border-color: #0082c9;
-		}
-		50% {
-			border-color: var(--color-main-background);
-		}
-		100% {
-			border-color: #0082c9;
-		}
-	}
+.volumeFull {
+	background-color: #0082c9;
+	mask-repeat: no-repeat;
+	mask-size: 100%;
+	mask-image: var(--icon-sound-000);
+}
 
-	.playerMetadata{
-		position: relative;
-		left: 5px;
-		top: -20px;
-		width: 203px;
-		height: 20px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+.volumeMute {
+	background-color: #0082c9;
+	mask-repeat: no-repeat;
+	mask-size: 100%;
+	mask-image: var(--icon-sound-off-000);
+}
 
-	.volumeIcon {
-		width: 25px;
-		height: 25px;
-		position: relative;
-		left: 85px;
-		top: 20px;
-		cursor: pointer;
-	}
-
-	.volumeFull {
-		background-color: #0082c9;
-		mask-repeat: no-repeat;
-		mask-size: 100%;
-		mask-image: var(--icon-sound-000);
-	}
-
-	.volumeMute {
-		background-color: #0082c9;
-		mask-repeat: no-repeat;
-		mask-size: 100%;
-		mask-image: var(--icon-sound-off-000);
-	}
-
-	.volume{
-		width: 165px;
-		display: inline-block;
-		position: relative;
-		left: 40px;
-		top: -12px;
-	}
-
+.volume {
+	width: 165px;
+	display: inline-block;
+	position: relative;
+	left: 40px;
+	top: -12px;
+}
 </style>

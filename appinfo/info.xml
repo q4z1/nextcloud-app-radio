@@ -26,7 +26,7 @@ app uses radio-browser.info database as a backend.
     <screenshot small-thumbnail="https://git.project-insanity.org/onny/nextcloud-app-radio/raw/master/screenshot-thumbnail.jpg">https://git.project-insanity.org/onny/nextcloud-app-radio/raw/master/screenshot.png</screenshot>
     <dependencies>
       <php min-version="7.4" max-version="8" />
-      <nextcloud min-version="20" max-version="21"/>
+      <nextcloud min-version="20" max-version="24"/>
     </dependencies>
     <navigations>
         <navigation>

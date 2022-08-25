@@ -30,6 +30,7 @@
 					<Breadcrumb title="Home" href="#/" />
 				</Breadcrumbs>
 			</div>
+			<Player :pinned="true" />
 			<Table
 				v-show="!pageLoading && stations.length > 0"
 				v-resize="onResize"
@@ -66,6 +67,7 @@ import Breadcrumb from '@nextcloud/vue/dist/Components/Breadcrumb'
 import Navigation from './../components/Navigation'
 import Table from './../components/Table'
 import Sidebar from './../components/Sidebar'
+import Player from './../components/Player'
 import { mapGetters, mapActions } from 'vuex'
 
 import { RadioBrowserApi } from './../services/RadioBrowserApi'
@@ -82,6 +84,7 @@ export default {
 		Sidebar,
 		Breadcrumbs,
 		Breadcrumb,
+		Player,
 	},
 	data: () => ({
 		pageLoading: false,
@@ -148,7 +151,7 @@ export default {
 			const tableHeight = height
 			if (tableHeight < contentHeight) {
 				// this.preFill()
-				console.log('prefill')
+				// console.log('prefill')
 			}
 		},
 

@@ -45,6 +45,7 @@
 					</ActionButton>
 				</Actions>
 			</div>
+			<Player :pinned="true" />
 			<Table
 				v-show="!pageLoading && stations.length > 0"
 				:station-data="stations"
@@ -120,6 +121,7 @@ import Table from './../components/Table'
 import Sidebar from './../components/Sidebar'
 import { mapGetters, mapActions } from 'vuex'
 import { RadioBrowserApi } from './../services/RadioBrowserApi'
+import Player from './../components/Player'
 const apiClient = new RadioBrowserApi()
 
 export default {
@@ -136,6 +138,7 @@ export default {
 		ActionButton,
 		Sidebar,
 		Modal,
+		Player,
 	},
 	data: () => ({
 		pageLoading: false,
