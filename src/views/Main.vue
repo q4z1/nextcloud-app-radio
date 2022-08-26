@@ -30,7 +30,7 @@
 					<Breadcrumb title="Home" href="#/" />
 				</Breadcrumbs>
 			</div>
-			<Player :pinned="true" />
+			<Player class="dplayer" :pinned="true" />
 			<Table
 				v-show="!pageLoading && stations.length > 0"
 				v-resize="onResize"

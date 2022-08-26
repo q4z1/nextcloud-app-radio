@@ -45,7 +45,7 @@
 					</ActionButton>
 				</Actions>
 			</div>
-			<Player :pinned="true" />
+			<Player class="dplayer" :pinned="true" />
 			<Table
 				v-show="!pageLoading && stations.length > 0"
 				:station-data="stations"

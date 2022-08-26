@@ -65,11 +65,11 @@ class RecentController extends Controller {
 	/**
 	 * @NoAdminRequired
 	 */
-	public function create(string $stationuuid, string $name, string $favicon, string $urlresolved,
+	public function create(string $stationuuid, string $name, string $favicon, string $url_resolved,
 		string $bitrate, string $country, string $language, string $homepage,
 		string $codec, string $tags): DataResponse {
 		return new DataResponse($this->service->create($stationuuid, $name,
-			$favicon, $urlresolved, $bitrate, $country, $language, $homepage, $codec,
+			$favicon, $url_resolved, $bitrate, $country, $language, $homepage, $codec,
 			$tags, $this->userId));
 	}
 
@@ -77,13 +77,13 @@ class RecentController extends Controller {
 	 * @NoAdminRequired
 	 */
 	public function update(int $id, string $stationuuid, string $name,
-		string $favicon, string $urlresolved, string $bitrate, string $country,
+		string $favicon, string $url_resolved, string $bitrate, string $country,
 		string $language, string $homepage, string $codec, string $tags): DataResponse {
 		return $this->handleNotFound(function () use ($id, $stationuuid, $name,
-			$favicon, $urlresolved, $bitrate, $country, $language, $homepage, $codec,
+			$favicon, $url_resolved, $bitrate, $country, $language, $homepage, $codec,
 			$tags) {
 			return $this->service->update($id, $stationuuid, $name, $favicon,
-				$urlresolved, $bitrate, $country, $language, $homepage, $codec,
+				$url_resolved, $bitrate, $country, $language, $homepage, $codec,
 				$tags, $this->userId);
 		});
 	}

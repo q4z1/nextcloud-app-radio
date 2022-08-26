@@ -31,7 +31,7 @@
 					<Breadcrumb title="Categories" href="#/categories" />
 				</Breadcrumbs>
 			</div>
-			<Player :pinned="true" />
+			<Player class="dplayer" :pinned="true" />
 			<Table
 				v-show="!pageLoading && stations.length > 0"
 				:station-data="stations"
@@ -214,7 +214,6 @@ export default {
 				this.showSidebar = false
 			}
 		},
-
 	},
 }
 </script>

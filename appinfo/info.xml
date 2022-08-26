@@ -16,7 +16,7 @@ app uses radio-browser.info database as a backend.
 - 👂 Smoth audio playback and transitions
 
 </description>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <licence>agpl</licence>
     <author mail="onny@project-insanity.org" >Jonas Heinrich</author>
     <namespace>Radio</namespace>

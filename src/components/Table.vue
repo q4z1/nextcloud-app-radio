@@ -73,6 +73,12 @@
 								@click="toggleSidebar(station)">
 								{{ t('radio', 'Details') }}
 							</ActionButton>
+							<ActionButton
+								icon="icon-download"
+								:close-after-click="true"
+								@click="downloadPls(station)">
+								{{ t('radio', 'Download Playlist') }}
+							</ActionButton>
 						</Actions>
 					</td>
 				</tr>
@@ -147,6 +153,21 @@ export default {
 		},
 		changeRoute(path) {
 			this.$router.push({ path })
+		},
+		downloadPls(station) {
+			const pls = '[playlist]\n'
+					+ 'numberofentries=1\n'
+					+ 'File1=' + station.url_resolved + '\n'
+					+ 'Title1=' + station.name + '\n'
+					+ 'Length1=-1\n'
+					+ 'Version=2\n'
+			const el = document.createElement('a')
+			el.setAttribute('href', 'data:audio/x-mpequrl;charset=utf-8,' + encodeURIComponent(pls))
+			el.setAttribute('download', station.name + '.pls')
+			el.style.display = 'none'
+			document.body.appendChild(el)
+			el.click()
+			document.body.removeChild(el)
 		},
 	},
 }

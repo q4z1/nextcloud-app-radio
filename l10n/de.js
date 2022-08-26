@@ -42,6 +42,7 @@ OC.L10N.register(
     "Name" : "Name",
     "Add to favorites" : "Zu den Favoriten hinzufügen",
     "Remove from favorites" : "Von den Favoriten entfernen",
-    "Details" : "Weitere Informationen"
+    "Details" : "Weitere Informationen",
+    "Download Playlist" : "Download Playlist"
 },
 "nplurals=2; plural=(n != 1);");

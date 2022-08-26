@@ -107,10 +107,10 @@ export default {
 
 <style>
 #app-settings {
-	display: grid;
-	grid-auto-flow: row;
-	justify-self: end;
-	grid-gap: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	align-items: center;
 }
 
 .rplayer {
@@ -143,7 +143,8 @@ button.player {
 	border: none !important;
 }
 
-button.player:focus {
+button.player:focus, button.player:active {
+	background: none !important;
 	border: none !important;
 }
 
@@ -175,14 +176,10 @@ button.player:focus {
 }
 
 .playerMetadata {
-	position: relative;
-	left: 5px;
-	top: -20px;
-	width: 203px;
-	height: 20px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	padding-bottom: 1em;
 }
 
 .volumeIcon {
@@ -214,5 +211,11 @@ button.player:focus {
 	position: relative;
 	left: 40px;
 	top: -12px;
+}
+
+@media screen and (min-width: 1024px) {
+	#app-settings.controls.dplayer {
+		display: none;
+	}
 }
 </style>

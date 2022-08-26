@@ -66,13 +66,13 @@ class RecentService {
 		}
 	}
 
-	public function create($stationuuid, $name, $favicon, $urlresolved,
+	public function create($stationuuid, $name, $favicon, $url_resolved,
 		$bitrate, $country, $language, $homepage, $codec, $tags, $userId) {
 		$station = new Station();
 		$station->setStationuuid($stationuuid);
 		$station->setName($name);
 		$station->setFavicon($favicon);
-		$station->setUrlresolved($urlresolved);
+		$station->setUrlresolved($url_resolved);
 		$station->setBitrate($bitrate);
 		$station->setCountry($country);
 		$station->setLanguage($language);
@@ -83,14 +83,14 @@ class RecentService {
 		return $this->mapper->insert($station);
 	}
 
-	public function update($id, $stationuuid, $name, $favicon, $urlresolved,
+	public function update($id, $stationuuid, $name, $favicon, $url_resolved,
 		$bitrate, $country, $language, $homepage, $codec, $tags, $userId) {
 		try {
 			$station = $this->mapper->find($id, $userId);
 			$station->setStationuuid($stationuuid);
 			$station->setName($name);
 			$station->setFavicon($favicon);
-			$station->setUrlresolved($urlresolved);
+			$station->setUrlresolved($url_resolved);
 			$station->setBitrate($bitrate);
 			$station->setCountry($country);
 			$station->setLanguage($language);
