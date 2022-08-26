@@ -42,9 +42,9 @@ class ExportResponse extends Response {
 		$productName = OC::$server->getThemingDefaults()->getName();
 		$dateTime = OC::$server->getDateTimeFormatter();
 
-		$export_name = '"' . $productName . ' Radio Favorites (' . $userName . ') (' . $dateTime->formatDate(time()) . ').xspf"';
+		$export_name = '"' . $productName . ' Radio Favorites (' . $userName . ') (' . $dateTime->formatDate(time()) . ').pls"';
 		$this->addHeader("Cache-Control", "private");
-		$this->addHeader("Content-Type", " application/xspf+xml");
+		$this->addHeader("Content-Type", " audio/x-mpequrl");
 		$this->addHeader("Content-Length", strlen($returnstring));
 		$this->addHeader("Content-Disposition", "attachment; filename=" . $export_name);
 		$this->returnstring = $returnstring;

@@ -30,8 +30,6 @@ use OCA\Radio\Service\FavoriteService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\IRequest;
-use SimpleXMLElement;
-use DOMDocument;
 
 class ExportController extends Controller {
 	/** @var FavoriteService */
@@ -55,22 +53,17 @@ class ExportController extends Controller {
 	 */
 	public function index() {
 
-		$xml = new SimpleXMLElement('<?xml version="1.0"?><playlist></playlist>');
-		$xml->addAttribute('encoding', 'UTF-8');
-		$trackList = $xml->addChild('trackList');
-		foreach($this->service->findAll($this->userId) as $station) {
-			$track = $trackList->addChild('track');
-			$track->addChild('location', $station->getUrlresolved());
-			$track->addChild('title', $station->getName());
-			$track->addChild('image', $station->getFavicon());
+		$stations = $this->service->findAll($this->userId);
+		$pls = "[playlist]\nnumberofentries=" . count((array)$stations) . "\n";
+		$i = 0;
+		foreach($stations as $station) {
+			$i++;
+			$pls .= "File$i=" . $station->getUrlresolved() . "\n"
+					. "Title$i=" . $station->getName() . "\n"
+					. "Length$i=-1\n";
 		}
-
-		$dom = new DOMDocument("1.0");
-		$dom->preserveWhiteSpace = false;
-		$dom->formatOutput = true;
-		$dom->loadXML($xml->asXML());
-
-		return new ExportResponse($dom->saveXML());
+		$pls .= "Version=2";
+		return new ExportResponse($pls);
 
 	}
 
