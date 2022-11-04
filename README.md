@@ -1,3 +1,6 @@
+### This is a fork of the official nextcloud radio-app https://git.project-insanity.org/onny/nextcloud-app-radio - feel free to use it on your own risk.
+
+
 # Nextcloud Radio app
 This experimental app uses the radio-browser.info api and offers radio stations right in your Nextcloud!
 
